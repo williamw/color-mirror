@@ -1,8 +1,8 @@
 {
-  "name": "colors",
+  "name": "color-mirror",
   "version": "0.0.1",
   "description": "Utility for extracting colors from an image",
-  "main": "colors.js",
+  "main": "color-mirror.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
