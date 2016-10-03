@@ -1,0 +1,23 @@
+{
+  "name": "colors",
+  "version": "0.0.1",
+  "description": "Utility for extracting colors from an image",
+  "main": "colors.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamw/colors.git"
+  },
+  "author": "Bill Welense",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williamw/colors/issues"
+  },
+  "homepage": "https://github.com/williamw/colors#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "node-vibrant": "^2.1.2"
+  }
+}
