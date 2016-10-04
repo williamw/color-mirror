@@ -8,6 +8,16 @@ This program uses two small dependencies:
 * [Commander](https://github.com/tj/commander.js)
 * [node-vibrant](https://github.com/jariz/vibrant.js/)
 
+## Installation
+```
+npm install
+```
+
+## Usage
+```
+node color-mirror.js -i samples/test.jpg -r
+```
+
 ## References
 * [Extracting the Dominant Color From an Image in Processing](http://www.catehuston.com/blog/2013/08/26/extracting-the-dominant-color-from-an-image-in-processing/)
 * [Creating Your First Node.js Command-line Application](http://tutorialzine.com/2014/09/creating-your-first-node-js-command-line-application/)
