@@ -17,6 +17,9 @@ npm install
 Output the most vibrant color found in an image in RBG:
 ```
 node color-mirror.js -i samples/test.jpg -r
+Analyzing the colors found in samples/test.jpg...
+Here's the most vibrant swatch
+RGB values:  [ 191, 70, 47 ]
 
 ```
 
@@ -24,12 +27,20 @@ Other output formats are available and can be chained.
 For example, to get RGB, HSL, and Hex, you can use:
 ```
 node color-mirror.js -i samples/test.jpg -rh#
+Analyzing the colors found in samples/test.jpg...
+Here's the most vibrant swatch
+HSL values:  [ 0.026620370370370374, 0.6050420168067226, 0.4666666666666667 ]
+RGB values:  [ 191, 70, 47 ]
+Hex value:  #bf462f
 ```
 
 You can adjust the quality (size scaling) of the image and
 number of sample "buckets" used in determining the color:
 ```
-node color-mirror.js -i samples/test.jpg -rh#
+node color-mirror.js -i samples/test.jpg -r -q 1 -s 16
+Analyzing the colors found in samples/test.jpg...
+Here's the most vibrant swatch
+RGB values:  [ 152, 79, 49 ]
 ```
 I recommend reading [Cate Huston's blog post](http://www.catehuston.com/blog/2013/08/26/extracting-the-dominant-color-from-an-image-in-processing/) where she goes into explaining how the size of the image and the number of color buckets affect calculating color values from an image.
 
