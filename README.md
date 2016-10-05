@@ -1,7 +1,9 @@
 # color-mirror
 This is a simple command line utility I started to learn some new things. Namely, I've been curious
 about extracting colors from a photo, then reflecting one or more of them back through an array of
-tiny LED lights.
+tiny LED lights, like shown in the following mockup.
+
+![LED sign hanging above couches and chair](samples/sign-mockup.jpg)
 
 ## Dependencies
 This program uses two small dependencies:
