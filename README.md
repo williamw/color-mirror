@@ -17,6 +17,7 @@ npm install
 Output the most vibrant color found in an image in RBG:
 ```
 node color-mirror.js -i samples/test.jpg -r
+
 ```
 
 Other output formats are available and can be chained.

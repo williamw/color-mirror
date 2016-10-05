@@ -78,27 +78,28 @@ if (program.image) {
 					showAllSwatches(swatches)
 				} else {
 					var desiredSwatch = 'Vibrant'
-					console.log('Most vibrant color is: ')
-					if (program.hsl) console.log(swatches[desiredSwatch].getHsl())
-					if (program.rgb) console.log(swatches[desiredSwatch].getRgb())
-					if (program.hex) console.log(swatches[desiredSwatch].getHex())
+					console.log("Here's the most vibrant swatch")
+					if (program.hsl) console.log('HSL values: ', swatches[desiredSwatch].getHsl())
+					if (program.rgb) console.log('RGB values: ', swatches[desiredSwatch].getRgb())
+					if (program.hex) console.log('Hex value: ', swatches[desiredSwatch].getHex())
 				}
 			}
 		})
 } else {
-	console.log('Doh! You need to specify an image to analyze.')
+	console.log('Oops! You need to specify an image to analyze.')
 	program.help()
 }
 
 function showAllSwatches(swatches) {
 	if (program.debug) console.log('Inside showAllSwatches function')
-	console.log('Colors found: ')
+	console.log("Here's the whole palette...")
     for (var swatch in swatches) {
     	if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
 			if (program.debug) console.log('Inside showAllSwatches if statement')
-			if (program.hsl) console.log(swatch, swatches[swatch].getHsl())
-			if (program.rgb) console.log(swatch, swatches[swatch].getRgb())
-			if (program.hex) console.log(swatch, swatches[swatch].getHex())
+			if (program.hsl) console.log(swatch, " HSL values: ", swatches[swatch].getHsl())
+			if (program.rgb) console.log(swatch, " RGB values: ", swatches[swatch].getRgb())
+			if (program.hex) console.log(swatch, " Hex value: ", swatches[swatch].getHex())
+			console.log(' ');
     	}
     }
 }
