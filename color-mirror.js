@@ -20,7 +20,7 @@ program
 
 // TO DO: Needs error checking to make sure file exists
 if (program.image) {
-	console.log('Getting colors from image %s...', program.image)
+	console.log('Analyzing the colors found in %s...', program.image)
 	
 	var optsG = {
 		targetDarkLuma: 0.26,
@@ -43,17 +43,22 @@ if (program.image) {
 		weightLuma: 6,
 		weightPopulation: 1
 	}
-	if (program.minVibrantSaturation) optsG.minVibrantSaturation = program.minVibrantSaturation
-		
+	if (program.minVibrantSaturation) optsG.minVibrantSaturation = parseFloat(program.minVibrantSaturation)
+	if (program.debug) console.log('opts for Vibrant Generator: \n', optsG)
 	var g = new Vibrant.Generator(optsG)
-	if (program.debug) console.log('Created Vibrant Generator')
+	if (program.debug) console.log('Created Vibrant Generator: \n', g)
+	if (program.debug && program.minVibrantSaturation) {
+		console.log('Using customized Generator')
+	} else if (program.debug) {
+		console.log('Using default Generator')
+	}
 	// TO DO: Figure out why the Vibrant instance below doesn't seem to use this generator
 	
 	var optsV = {
 		colorCount: 64,
-		quality: 5,
-		useGenerator: g
+		quality: 5
 	}
+	if (program.minVibrantSaturation) optsV.generator = g
 	if (program.samples) optsV.colorCount = program.samples
 	if (program.quality) optsV.quality = program.quality
 		
@@ -68,23 +73,26 @@ if (program.image) {
 			}
 
 			if (program.rgb || program.hsl || program.hex) {
-				if (program.debug) console.log('Inside RGB, HSL, Hex if statement \n swatches: \n', swatches)
+				if (program.debug) console.log('Inside RGB, HSL, Hex if statement \n Swatches: \n', swatches)
 				if (program.all) {
 					showAllSwatches(swatches)
 				} else {
-					if (program.hsl) console.log('Vibrant ', swatches['Vibrant'].getHsl())
-					if (program.rgb) console.log('Vibrant ', swatches['Vibrant'].getRgb())
-					if (program.hex) console.log('Vibrant ', swatches['Vibrant'].getHex())
+					var desiredSwatch = 'Vibrant'
+					console.log('Most vibrant color is: ')
+					if (program.hsl) console.log(swatches[desiredSwatch].getHsl())
+					if (program.rgb) console.log(swatches[desiredSwatch].getRgb())
+					if (program.hex) console.log(swatches[desiredSwatch].getHex())
 				}
 			}
 		})
 } else {
-	console.log('[Error: Please specify an image to process ]')
+	console.log('Doh! You need to specify an image to analyze.')
 	program.help()
 }
 
 function showAllSwatches(swatches) {
 	if (program.debug) console.log('Inside showAllSwatches function')
+	console.log('Colors found: ')
     for (var swatch in swatches) {
     	if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
 			if (program.debug) console.log('Inside showAllSwatches if statement')
